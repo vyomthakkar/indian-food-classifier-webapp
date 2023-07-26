@@ -26,7 +26,7 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  place-items: start;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -41,6 +41,10 @@ h1 {
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .logo {
@@ -94,4 +98,25 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+#input-img-form {
+  width: 50vw;
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#input-img-display {
+  width: 200px;
+}
+
+#pred-space {
+  width: 30vw;
+  flex-direction: column;
+  display: none;
+  justify-content: center;
+  align-items: center;
 }

@@ -7,7 +7,20 @@
     <title>Vite App</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+        <form id="input-img-form">
+          <label for="input-img">Choose an image for classification:</label>
+          <input type="file" id ="input-img" name="input-img" accept="image/png, image/jpeg">
+          <button type="submit">Submit</button>
+        </form>
+        <div id="pred-space">
+          <img id="input-img-display" />
+          <p id="pred-text">
+            <span id="pred-label"></span>
+            <span id="pred-prob"></span>
+          </p>
+        </div>
+    </div>
     <script type="module" src="/main.js"></script>
   </body>
 </html>
