@@ -113,6 +113,13 @@ button:focus-visible {
   width: 200px;
 }
 
+.pred-item {
+  padding: 0 2em;
+  border-bottom: 1px solid #646cff;
+  margin-bottom: 2em;
+  font-weight: bold;
+}
+
 #pred-space {
   width: 30vw;
   flex-direction: column;

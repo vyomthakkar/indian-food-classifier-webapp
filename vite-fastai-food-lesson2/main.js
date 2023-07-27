@@ -27,7 +27,7 @@ const createDomPredItem = (url, label, confidenceObj) => {
 	predLabelEl.textContent = label
 	const predProbEl = document.createElement("span")
 	predProbEl.classList.add("pred-prob")
-	predProbEl.textContent = `(${(confidenceObj.confidence * 100).toFixed(2) + "%"})`
+	predProbEl.textContent = `  (${(confidenceObj.confidence * 100).toFixed(2) + "%"})`
 	predTextEl.appendChild(predLabelEl)
 	predTextEl.appendChild(predProbEl)
 	predItemEl.appendChild(predTextEl)
