@@ -4,20 +4,15 @@ import { client } from "@gradio/client";
 
 const formEl = document.getElementById("input-img-form")
 const inputEl = document.getElementById("input-img")
-const imgEl = document.getElementById("input-img-display")
 const predSpaceEl = document.getElementById("pred-space")
-const predLabelEl = document.getElementById("pred-label")
-const predProbEl = document.getElementById("pred-prob")
 
 formEl.addEventListener("submit", async (e) => {
 	e.preventDefault();
-	predLabelEl.textContent = ""
-	predProbEl.textContent = ""
 	predSpaceEl.style.display = "flex"
+	predSpaceEl.innerHTML = "<h3>Predicting...</h3>"
 	console.log(inputEl.files)
 	let url = window.URL.createObjectURL(inputEl.files[0]);
 	console.log(url)
-	imgEl.src = url
 	const response_0 = await fetch(url);
 	console.log(response_0)
 	const exampleImage = await response_0.blob();
@@ -30,10 +25,18 @@ formEl.addEventListener("submit", async (e) => {
 
 	console.log(result.data);
 
-	predLabelEl.textContent = result.data[0].label
 	const confidenceObj = result.data[0].confidences.filter((obj) => obj.label === result.data[0].label)[0]
 	console.log(confidenceObj)
-	predProbEl.textContent = `(${(confidenceObj.confidence * 100).toFixed(2) + "%"})`
+
+	predSpaceEl.innerHTML = `
+			<div class="pred-item">
+				<img class="input-img-display" src="${url}" />
+				<p class="pred-text">
+					<span class="pred-label">${result.data[0].label}</span>
+					<span class="pred-prob">(${(confidenceObj.confidence * 100).toFixed(2) + "%"})</span>
+				</p>
+			</div>
+	`
 
 })
 

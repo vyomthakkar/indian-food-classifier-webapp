@@ -109,7 +109,7 @@ button:focus-visible {
   justify-content: space-evenly;
 }
 
-#input-img-display {
+.input-img-display {
   width: 200px;
 }
 
